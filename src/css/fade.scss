@@ -3,7 +3,7 @@
   opacity: 1;
 }
 .fade-leave-active {
-  transition: opacity 0.3s linear;
+  transition: opacity 1.2s linear;
 }
 .fade-leave-to {
   opacity: 0;
@@ -13,7 +13,7 @@
   opacity: 0;
 }
 .fade-enter-active {
-  transition: opacity 0.3s linear;
+  transition: opacity 1.2s linear;
 }
 .fade-enter-to {
   opacity: 1;

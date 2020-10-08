@@ -5,6 +5,15 @@ import barbaCss from '@barba/css';
 // tell Barba to use the css plugin
 barba.use(barbaCss);
 
+// to remove blind white color when transition
+const body = document.querySelector('body');
+barba.hooks.before((data) => {
+
+    const background = data.current.container.dataset.background;
+    body.style.setProperty('--page-background', background);
+
+});
+
 // init Barba
 barba.init({
     transitions: [
