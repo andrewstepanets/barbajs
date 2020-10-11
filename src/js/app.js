@@ -44,6 +44,13 @@ barba.init({
             },
             leave() { },
             enter() { }
+        }, {
+            name: 'with-cover',
+            to: {
+                namespace: ['with-cover']
+            },
+            leave() { },
+            enter() { }
         }
     ]
 });
