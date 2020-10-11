@@ -19,16 +19,20 @@ barba.init({
     transitions: [
         {
             name: 'home',
-            beforeOnce(){
-                console.log('beforeOnce');
+            to: {
+                namespace: ['home']
             },
+            sync: true,
+            once() { },
+            leave() { },
+            enter() { }
+            // beforeOnce(){
+            //     console.log('beforeOnce');
+            // },
             // with css plugin, this will not run
-            once(){
-                console.log('once');
-            },
-            afterOnce(){
-                console.log('afterOnce');
-            }
+            // afterOnce(){
+            //     console.log('afterOnce');
+            // }
         }, {
             name: 'fade',
             to: {
@@ -41,6 +45,13 @@ barba.init({
             sync: true,
             to: {
                 namespace: ['clip']
+            },
+            leave() { },
+            enter() { }
+        }, {
+            name: 'with-cover',
+            to: {
+                namespace: ['with-cover']
             },
             leave() { },
             enter() { }
