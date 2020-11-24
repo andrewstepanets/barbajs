@@ -13,8 +13,10 @@ barba.init({
             once({ next }){
                 animationEnter(next.container);
             },
-            leave({ current }){
-                animationEnter(current.container);
+            leave: ({ current }) => animationLeave(current.container),
+            enter({ next }) {
+                console.log('entering');
+                animationEnter(next.container);
             }
         }
     ]
