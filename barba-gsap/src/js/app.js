@@ -7,6 +7,14 @@ const resetActiveLink = () => gsap.set('a.is-active span', {
     transformOriginal: 'left'
 })
 
+barba.hooks.enter(() => {
+    console.log('enter');
+    window.scrollTo(0,0);
+})
+barba.hooks.after(() => {
+    console.log('after');
+})
+
 barba.init({
     transitions: [
         {
