@@ -8,14 +8,22 @@ const resetActiveLink = () => gsap.set('a.is-active span', {
 })
 
 barba.hooks.enter(() => {
-    console.log('enter');
+    // console.log('enter');
     window.scrollTo(0,0);
 })
 barba.hooks.after(() => {
-    console.log('after');
+    // console.log('after');
 })
 
 barba.init({
+    views: [
+        {
+            namespace: 'architecture',
+            beforeEnter(data){
+                console.log(data, 'architecture');
+            }
+        }
+    ],
     transitions: [
         {
             name: 'detail',
