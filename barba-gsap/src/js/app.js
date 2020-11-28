@@ -1,6 +1,11 @@
 import barba from '@barba/core';
+import barbaPrefetch from '@barba/prefetch';
 import gsap from 'gsap/gsap-core';
 import { animationEnter, animationLeave, revealProject, leaveToProject, leaveFromProject } from './animations';
+
+
+// tell Barba to use the prefetch plugin
+barba.use(barbaPrefetch);
 
 const resetActiveLink = () => gsap.set('a.is-active span', {
     xPercent: -100,
