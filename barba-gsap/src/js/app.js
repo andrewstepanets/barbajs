@@ -1,5 +1,6 @@
 import barba from '@barba/core';
 import barbaPrefetch from '@barba/prefetch';
+import barbaRouter from '@barba/router';
 import gsap from 'gsap/gsap-core';
 import { animationEnter, animationLeave, revealProject, leaveToProject, leaveFromProject } from './animations';
 
@@ -7,13 +8,26 @@ import { animationEnter, animationLeave, revealProject, leaveToProject, leaveFro
 // tell Barba to use the prefetch plugin
 barba.use(barbaPrefetch);
 
+
+const myRoutes = [
+    { name: 'home', path: '/index.html'},
+    { name: 'architecture', path: '/architecture.html'},
+    { name: 'detail', path: '/detail-page.html'},
+    { name: 'detail-2', path: '/detail-page-2.html'},
+]
+
+barba.use(barbaRouter, {
+    routes: myRoutes
+});
+
 const resetActiveLink = () => gsap.set('a.is-active span', {
     xPercent: -100,
     transformOriginal: 'left'
 })
 
-barba.hooks.enter(() => {
+barba.hooks.enter((data) => {
     // console.log('enter');
+    console.log({ data });
     window.scrollTo(0,0);
 })
 barba.hooks.after(() => {
@@ -66,7 +80,8 @@ barba.init({
         {
             name: 'from-detail',
             from: {
-                namespace: ['detail']
+                // namespace: ['detail']
+                route: ['detail-2']
             },
             leave: ({ current }) => leaveFromProject(current.container),
             enter({ next }) {
